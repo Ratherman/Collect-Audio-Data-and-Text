@@ -1,10 +1,20 @@
 # Collect-Audio-Data-and-Text
 
+# Update Description
+* Lastest Updated Date: 2021/10/16
+* - - - - - - - - - - - - - - - - -
+* 2021/10/16: Add Env and Guide.
+# Tomorow's Goal is to use python to (1) crawl texts and (2) insert into db, i.e., ATdata 
+
 # Env
 * OS: Ubuntu 20.04
 
 # Guide:
-## How to install vscode on Ubuntu 20.04?
+* (2021/10/16) How to install Vscode on Ubuntu 20.04?
+* (2021/10/16) How to install MSSQL on Ubuntu 20.04?
+* (2021/10/16) How to use sqlcmd (i.e. sqlcmd basic)?
+
+## How to install Vscode on Ubuntu 20.04?
 1. Go the this [website](https://code.visualstudio.com/download) and download **.deb**.
 2. After downloading, open up terminal and enter the following command.
 3. `sudo apt install ./code_1.61.1-1634175470_amd64.deb` the number might be different
@@ -52,3 +62,21 @@
         * `source ~/.bashrc`
     * Connect to your server
         * `sqlcmd -S localhost -U SA -P 'Password'`
+
+## How to use sqlcmd (i.e. sqlcmd basic) ? 
+* Target: Create a simple Table (**ATdata**) containing two columns. One is "Text", and another is "Audio_Path".
+    * Step 01: Create a Database named **DB**
+        * `Create Database DB`
+        * `Go`
+    * Step 02: Specify the database we want to use.
+        * `Use DB`
+        * `Go`
+    * Step 03: Create a Table called **ATdata**
+        * `Create Table dbo.ATdata (ID int NOT NULL IDENTITY(1,1) Primary KEY, TEXT varchar(50) NOT NULL, Audio_Path varchar(200) Default 'C:default/path/to/your/audio/file')`
+        * `Go`
+    * Step 04: Insert a row for testing purpose
+        * `INSERT dbo.ATdata (Text) VALUES ('Hi, my name is Eric.')`
+        * `Go`
+    * Step 05: Make sure the data is inserted successfully
+        * `SELECT * FROM dbo.ATdata`
+        * `Go`
