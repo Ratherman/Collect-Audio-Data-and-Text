@@ -1,22 +1,38 @@
 # Collect-Audio-Data-and-Text
 
 # Update Description
-* Lastest Updated Date: 2021/10/16
+* Lastest Updated Date: 2021/10/17
 * - - - - - - - - - - - - - - - - -
 * 2021/10/16: Add Env and Guide.
 * 2021/10/17: Add Guide and Write Code (crawl & insert).
-# Tomorow's Goal is to use python to (1) crawl texts and (2) insert into db, i.e., ATdata 
+####  2021/10/18: Tomorrow's goal is use flask to display ramdom 10 sentences from db. 
 
 # Env
 * OS_1: Ubuntu 20.04
 * OS_2: Windows 10
+* Necessary Tools:
+    1. VScode
+    2. MSSQL
+    3. Conda
 
 # Guide:
+* (2021/10/17) Setup Conda Virtual Env for this specific purpose?
 * (2021/10/16) How to install VScode on Ubuntu 20.04?
 * (2021/10/16) How to install MSSQL on Ubuntu 20.04?
 * (2021/10/16) How to use sqlcmd (i.e. sqlcmd basic)?
 * (2021/10/17) How to install MSSQL on Windows 10?
 * (2021/10/17) How to let VScode recognize Conda (i.e. Edit Env Path)?
+
+## Setup Conda Virtual Env for this specific purpose
+* Step 1: Make sure you've installed anaconde.
+* Step 2: `conda create -n "CADAT" python=3.8`
+* Step 3: `conda activate CADAT`
+* Step 4: `conda install jupyter notebook` -> Use jupyter notebook to write some draft.
+* Step 5: `conda install beautifulsoup4`
+* Step 6: `conda install requests`
+* Step 7: `conda install numpy`
+* Step 8: `conda install pandas`
+* Step 9: `conda install pyodbc`
 
 ## How to install Vscode on Ubuntu 20.04?
 * Step 1: Go to this [website](https://code.visualstudio.com/download) and download **.deb**.
@@ -75,32 +91,36 @@
         * `echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc`
         * `source ~/.bashrc`
     * Connect to your server
-        * `sqlcmd -S localhost -U SA -P 'Password'`
+        * (Ubuntu 20.04) `sqlcmd -S localhost -U SA -P 'Password'`
+        * (Windows 10) `sqlcmd -E -S .\SQLEXPRESS`
 
 ## How to use sqlcmd (i.e. sqlcmd basic) ? 
 * Target: Create a simple Table (**ATdata**) containing two columns. One is "Text", and another is "Audio_Path".
-* Step 01: Create a Database named **DB**
+* Step 1: Create a Database named **DB**
     * `Create Database DB`
     * `Go`
 * Step 02: Specify the database we want to use.
     * `Use DB`
     * `Go`
-* Step 03: Create a Table called **ATdata**
-    * `Create Table dbo.ATdata (ID int NOT NULL IDENTITY(1,1) Primary KEY, TEXT varchar(50) NOT NULL, Audio_Path varchar(200) Default 'C:default/path/to/your/audio/file')`
+* Step 3: Create a Table called **ATdata**
+    * `Create Table dbo.ATdata (ID int NOT NULL IDENTITY(1,1) Primary KEY, TEXT varchar(500) NOT NULL, Audio_Path varchar(200) Default 'C:default/path/to/your/audio/file')`
     * `Go`
-* Step 04: Insert a row for testing purpose
+* Step 4: Insert a row for testing purpose
     * `INSERT dbo.ATdata (Text) VALUES ('Hi, my name is Eric.')`
     * `Go`
-* Step 05: Make sure the data is inserted successfully
+* Step 5: Make sure the data is inserted successfully
     * `SELECT * FROM dbo.ATdata`
+    * `Go`
+* Step 6: Drop Database
+    * `Drop Database DB`
     * `Go`
 
 ## How to let VScode recognize Conda (i.e. Edit Env Path)
-* Step 01: Click Windows Icon and search for **環境變數(environmental variable)**
-* Step 02: In **System Variable**, click **path**.
-* Step 03: Make sure you've installed **Anaconda**.
-* Step 04: Add the following 3 paths into the clicked **path**.
+* Step 1: Click Windows Icon and search for **環境變數(environmental variable)**
+* Step 2: In **System Variable**, click **path**.
+* Step 3: Make sure you've installed **Anaconda**.
+* Step 4: Add the following 3 paths into the clicked **path**.
     1. `c:\users\[username]\anaconda3`
     2. `c:\users\[username]\anaconda3\Scripts`
     3. `c:\users\[username]\anaconda3\Library\bin`
-* Step 05: Restart VScode, then you are good to go!
+* Step 5: Restart VScode, then you are good to go!
