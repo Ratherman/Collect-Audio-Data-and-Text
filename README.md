@@ -5,7 +5,7 @@
 * - - - - - - - - - - - - - - - - -
 * 2021/10/16: Add Env and Guide.
 * 2021/10/17: Add Guide and Write Code (crawl & insert).
-####  2021/10/18: Tomorrow's goal is use flask to display ramdom 10 sentences from db. 
+* 2021/10/18: Add Guide and Write Code (test db connection)
 
 # Env
 * OS_1: Ubuntu 20.04
@@ -16,6 +16,7 @@
     3. Conda
 
 # Guide:
+* (2021/10/18) Connect Flask to MSSQL
 * (2021/10/17) Setup Conda Virtual Env for this specific purpose?
 * (2021/10/16) How to install VScode on Ubuntu 20.04?
 * (2021/10/16) How to install MSSQL on Ubuntu 20.04?
@@ -32,7 +33,40 @@
 * Step 6: `conda install requests`
 * Step 7: `conda install numpy`
 * Step 8: `conda install pandas`
-* Step 9: `conda install pyodbc`
+* Step 9: `conda install pyodbc` Maybe Not Necessary because we have **flask_sqlalchemy**
+* Step 10: `conda install -c conda-forge flask-sqlalchemy`
+
+## Connect Flask to MSSQL
+* Watch this [YouTube Video](https://www.youtube.com/watch?v=Z1RJmh_OqeA) for basic Flask implementation.
+* Read this [StackoverFlow](https://stackoverflow.com/questions/46739295/connect-to-mssql-database-using-flask-sqlalchemy?fbclid=IwAR0HeSGjT2Yo5YH2qKySc4Mt-YTedh-f6uQLNFsDYOoBTcVpUL_hf7hOTgI) Forum for connecting Flask to MSSQL.
+* Step 1: Import packages
+```
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+
+```
+* Step 2: Configure **app** and Create **db** instance
+```
+app = Flask(__name__)
+
+app.config["SQLALCHEMY_DATABASE_URI"] = "mssql+pyodbc://LAPTOP-Q0DB1ITI\SQLEXPRESS/DB?driver=SQL+Server?trusted_connection=yes"
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+db = SQLAlchemy(app)
+```
+
+* Step 3: Setup the table (Demo)
+```
+class audio_data(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    content = db.Column(db.String(500), nullable=False)
+    audio_path = db.Column(db.String(500), nullable=False)
+    
+    def __repr__(self):
+        return "<Content %r>" % self.content
+```
+
+* Step 4: Create Database
+`db.create_all()`
 
 ## How to install Vscode on Ubuntu 20.04?
 * Step 1: Go to this [website](https://code.visualstudio.com/download) and download **.deb**.
