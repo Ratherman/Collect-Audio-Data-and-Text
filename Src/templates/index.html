@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block head %}{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Audio Text Collecter</h1>
+
+    <div class="form">
+        <form action="/" method="POST">
+            <input type="text" name="content" id="content">
+            <input type="submit" value="Add Text and Record">
+        </form>
+    </div>
+    <br>
+    <table>
+        <tr>
+            <th>Text</th>
+            <th>Audio Path</th>
+            <th>Actions</th>
+        </tr>
+        {% for pair in pairs %}
+            <tr>
+                <td>{{ pair.text  }}</td>
+                <td>{{ pair.audio }}</td>
+                <td>
+                    <a href="/delete/{{ pair.id }}">Delete</a>
+                    <br>
+                    <a href="/update/{{ pair.id }}">Update</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+
+</div>
+{% endblock %}
