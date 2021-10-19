@@ -1,11 +1,12 @@
 # Collect-Audio-Data-and-Text
 
 # Update Description
-* Lastest Updated Date: 2021/10/17
+* Lastest Updated Date: 2021/10/19
 * - - - - - - - - - - - - - - - - -
 * 2021/10/16: Add Env and Guide.
 * 2021/10/17: Add Guide and Write Code (crawl & insert).
 * 2021/10/18: Add Guide and Write Code (test db connection)
+* 2021/10/19: Write Code (flask, db & crawler)
 
 # Env
 * OS_1: Ubuntu 20.04
