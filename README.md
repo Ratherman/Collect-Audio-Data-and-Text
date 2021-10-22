@@ -1,12 +1,14 @@
 # Collect-Audio-Data-and-Text
 
 # Update Description
-* Lastest Updated Date: 2021/10/19
+* Lastest Updated Date: 2021/10/22
 * - - - - - - - - - - - - - - - - -
-* 2021/10/16: Add Env and Guide.
-* 2021/10/17: Add Guide and Write Code (crawl & insert).
-* 2021/10/18: Add Guide and Write Code (test db connection)
+* 2021/10/23: Consider Redirect and Heroku.
+* 2021/10/22: Integrate the code found yesterday and my own code together to make GUI contains two functionalities in one webpage.
+* 2021/10/21: Find the [code](https://github.com/duketemon/web-speech-recorder/blob/master/source/app.py?fbclid=IwAR2bqlR9Lrth5uR6Bzol784RJxxsMN4gcK3_k-aBot2TF058YsDxtTAvtsg) for recording voice.* 2021/10/16: Add Env and Guide.
 * 2021/10/19: Write Code (flask, db & crawler)
+* 2021/10/18: Add Guide and Write Code (test db connection)
+* 2021/10/17: Add Guide and Write Code (crawl & insert).
 
 # Env
 * OS_1: Ubuntu 20.04

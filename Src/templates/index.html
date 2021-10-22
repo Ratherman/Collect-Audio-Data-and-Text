@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
-{% block head %}{% endblock %}
+{% block head %}
+{% endblock %}
 
 {% block body %}
 <div class="content">
@@ -15,23 +16,68 @@
     <br>
     <table>
         <tr>
+            <th>ID</th>
             <th>Text</th>
             <th>Audio Path</th>
             <th>Actions</th>
         </tr>
-        {% for pair in pairs %}
-            <tr>
-                <td>{{ pair.text  }}</td>
-                <td>{{ pair.audio }}</td>
-                <td>
-                    <a href="/delete/{{ pair.id }}">Delete</a>
-                    <br>
-                    <a href="/update/{{ pair.id }}">Update</a>
-                </td>
-            </tr>
-        {% endfor %}
+        <tr>
+            <td>{{ pair.id    }}</td>
+            <td>{{ pair.text  }}</td>
+            <td>{{ pair.audio }}</td>
+            <td>
+                <button class="startRecording" onclick="startRecording()">Start recording</button>
+                <button class="stopRecording" onclick="stopRecording()">Stop recording</button>
+            </td>
+        </tr>
     </table>
 
 
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    navigator
+        .mediaDevices
+        .getUserMedia({audio: true})
+        .then(stream => { handlerFunction(stream) });
+
+    function handlerFunction(stream) {
+        rec = new MediaRecorder(stream);
+        rec.ondataavailable = e => {
+            audioChunks.push(e.data);
+            if (rec.state == "inactive") {
+                let blob = new Blob(audioChunks, {type: 'audio/mpeg-3'});
+                sendData(blob);
+            }
+        }
+    }
+
+    function startRecording(){
+        console.log('Recording are started..');
+        audioChunks = [];
+        rec.start();
+    }
+
+    function stopRecording(){
+        console.log("Recording are stopped.");
+        rec.stop();
+    }
+    function sendData(data) {
+        var form = new FormData();
+        form.append('file', data, 'data.mp3');
+        form.append('title', 'data.mp3');
+        //Chrome inspector shows that the post data includes a file and a title.
+        $.ajax({
+            type: 'POST',
+            url: '/save-record',
+            data: form,
+            cache: false,
+            processData: false,
+            contentType: false
+        }).done(function(data) {
+            console.log(data);
+        });
+    }
+</script>
 {% endblock %}
+
