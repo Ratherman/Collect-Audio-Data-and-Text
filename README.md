@@ -64,8 +64,8 @@
 * Step 13: Download [ffmpeg.exe](https://www.ffmpeg.org/download.html) for your OS, and then append this .exe file your into your **path**.
 
 # About How to ... please check:
-* How to Connect Flask to MSSQL?
-* How to install MSSQL on Windows 10?
+* [How to Connect Flask to MSSQL?](https://github.com/Ratherman/Collect-Audio-Data-and-Text#how-to-connect-flask-to-mssql)
+* [How to install MSSQL on Windows 10?](https://github.com/Ratherman/Collect-Audio-Data-and-Text#how-to-install-mssql-on-windows-10)
 
 ## How to Connect Flask to MSSQL?
 * Watch this [YouTube Video](https://www.youtube.com/watch?v=Z1RJmh_OqeA) for basic Flask implementation.

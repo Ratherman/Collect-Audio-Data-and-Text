@@ -1,4 +1,2 @@
 # ignore Wav and Text Data
-/Data/Gen_Audio/
-/Data/Raw_Text/*.txt
-/Data/Tran_Text/*.txt
+*.ipynb
