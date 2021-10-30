@@ -59,8 +59,8 @@
 * Step 9: `pip install pyodbc`
 * Step 10: `pip install flask-sqlalchemy`
 * Step 11: `pip install flask`
-* Step 12: `pip install ffmpeg`
-* Step 13: `pip install pydub`
+* Step 12: `pip install pydub`
+* Step 13: `pip install ffmpeg`
 * Step 14: Download [ffmpeg.exe](https://github.com/BtbN/FFmpeg-Builds/releases) for your OS, and then append this .exe file your into your **path**.
 * (Optional) Step 15: `ffmpeg -version`
 * (Optional) Step 16: `git clone https://github.com/Ratherman/Collect-Audio-Data-and-Text.git`
