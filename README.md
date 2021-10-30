@@ -61,7 +61,7 @@
 * Step 11: `pip install flask`
 * Step 12: `pip install ffmpeg`
 * Step 13: `pip install pydub`
-* Step 13: Download [ffmpeg.exe](https://www.ffmpeg.org/download.html) for your OS, and then append this .exe file your into your **path**.
+* Step 13: Download [ffmpeg.exe](https://github.com/BtbN/FFmpeg-Builds/releases) for your OS, and then append this .exe file your into your **path**.
 
 # About How to ... please check:
 * [How to Connect Flask to MSSQL?](https://github.com/Ratherman/Collect-Audio-Data-and-Text#how-to-connect-flask-to-mssql)
