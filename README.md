@@ -38,6 +38,7 @@
 * Step 8: `conda install pandas`
 * Step 9: `conda install pyodbc` Maybe Not Necessary because we have **flask_sqlalchemy**
 * Step 10: `conda install -c conda-forge flask-sqlalchemy`
+* Step 12: `conda install -c conda-forge ffmpeg`
 
 ## Connect Flask to MSSQL
 * Watch this [YouTube Video](https://www.youtube.com/watch?v=Z1RJmh_OqeA) for basic Flask implementation.
