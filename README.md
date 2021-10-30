@@ -63,6 +63,8 @@
 * Step 13: Download [ffmpeg.exe](https://github.com/BtbN/FFmpeg-Builds/releases) for your OS, and then append this .exe file your into your **path**.
 * Step 14: `pip install pydub`
 * Step 15: `git clone https://github.com/Ratherman/Collect-Audio-Data-and-Text.git`
+* (Optional) Step 16: `cd Collect-Audio-Data-and-Text/Src/`
+* (Optional) Step 17: `flask run`
 
 # About How to ... please check:
 * [How to Connect Flask to MSSQL?](https://github.com/Ratherman/Collect-Audio-Data-and-Text#how-to-connect-flask-to-mssql)
