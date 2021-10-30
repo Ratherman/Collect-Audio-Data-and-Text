@@ -3,10 +3,8 @@ from flask_sqlalchemy import SQLAlchemy
 import os
 import random
 import uuid
-import mutagen
 import librosa
 import urllib
-from mutagen.wave import WAVE
 from pathlib import Path
 from pydub import AudioSegment
 
@@ -15,8 +13,6 @@ UPLOAD_FOLDER = '..\Data\Gen_Audio'
 app = Flask(__name__)
 params = urllib.parse.quote_plus('DRIVER={SQL Server};SERVER=LAPTOP-Q0DB1ITI\SQLEXPRESS;DATABASE=DB;Trusted_Connection=yes;')
 app.config['SQLALCHEMY_DATABASE_URI'] = "mssql+pyodbc:///?odbc_connect=%s" % params
-
-#app.config["SQLALCHEMY_DATABASE_URI"] = "mssql+pyodbc://LAPTOP-Q0DB1ITI\SQLEXPRESS/DB?driver=SQL+Server?trusted_connection=yes"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.secret_key = "super secret key"
@@ -86,7 +82,6 @@ def index():
     len_of_pairs = len(selected_pairs)
     rand = random.randint(0, len_of_pairs-1)
     session["ID"] = idx_selected_pairs[rand]+1
-    #session["pair"]=pairs[idx_selected_pairs[rand]]
     return render_template("index.html", pair=pairs[idx_selected_pairs[rand]])
 
 if __name__ == "__main__":
