@@ -5,18 +5,20 @@
 
 {% block body %}
 <div class="content">
-    <h1 style="text-align: center">TTS: Audio Collecter</h1>
+    <h1 style="text-align: center">CS50 Final Projcet: CADAT</h1>
     <table>
+        <col width="100%">
+        <col width="300">
         <tr>
-            <th>Text</th>
-            <th>Actions</th>
+            <th><p>Text</p></th>
+            <th><p>Actions</p></th>
         </tr>
         <tr>
-            <td>{{ pair.text  }}</td>
+            <td><p align=left style="font-size: 28px;">{{ pair.text  }}</p></td>
             <td>
-                <button class="startRecording" onclick="startRecording()">Start recording</button>
-                <button class="stopRecording" onclick="stopRecording()">Stop recording</button>
-                <a href="{{ url_for('index') }}"><button>Record Next One</button></a>
+                <button class="startRecording" onclick="startRecording()"><p>Start recording</p></button>
+                <button class="stopRecording" onclick="stopRecording()"><p>Stop recording</p></button>
+                <a href="{{ url_for('index') }}"><button><p>Record Next One</p></button></a>
             </td>
         </tr>
     </table>
@@ -41,12 +43,14 @@
     }
 
     function startRecording(){
+        $( ".startRecording" ).css('background', 'greenyellow');
         console.log('Recording are started..');
         audioChunks = [];
         rec.start();
     }
 
     function stopRecording(){
+        $( ".stopRecording" ).css('background', 'greenyellow');
         console.log("Recording are stopped.");
         rec.stop();
     }
