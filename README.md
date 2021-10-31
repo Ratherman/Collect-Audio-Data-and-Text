@@ -60,12 +60,13 @@
 * Step 10: `pip install flask-sqlalchemy`
 * Step 11: `pip install flask`
 * Step 12: `pip install pydub`
-* Step 13: `pip install ffmpeg`
-* Step 14: Download [ffmpeg.exe](https://github.com/BtbN/FFmpeg-Builds/releases) for your OS, and then append this .exe file your into your **path**.
-* (Optional) Step 15: `ffmpeg -version`
-* (Optional) Step 16: `git clone https://github.com/Ratherman/Collect-Audio-Data-and-Text.git`
-* (Optional) Step 17: `cd Collect-Audio-Data-and-Text/Src/`
-* (Optional) Step 18: `flask run`
+* Step 13: `pip install librosa`
+* Step 14: `pip install ffmpeg`
+* Step 15: Download [ffmpeg.exe](https://github.com/BtbN/FFmpeg-Builds/releases) for your OS, and then append this .exe file your into your **path**.
+* (Optional) Step 16: `ffmpeg -version`
+* (Optional) Step 17: `git clone https://github.com/Ratherman/Collect-Audio-Data-and-Text.git`
+* (Optional) Step 18: `cd Collect-Audio-Data-and-Text/Src/`
+* (Optional) Step 19: `flask run`
 
 # About How to ... please check:
 * [How to Connect Flask to MSSQL?](https://github.com/Ratherman/Collect-Audio-Data-and-Text#how-to-connect-flask-to-mssql)
